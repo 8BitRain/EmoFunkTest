@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<link href='http://fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+
+<script type="text/javascript">
+
+	var imgTop = null;
+	var imgBottom = null;
+	var increment = 0;
+	var anim;
+	function init(){
+		imgBottom = document.getElementById("body");
+		imgBottom.style.top = 50 + 'px';
+		imgTop = document.getElementById("head");
+		imgTop.style.top = 50 + 'px';
+		anim = null;
+	}
+	function splitMindDown(){
+		//Essentially we want to move the image up a few pixels and move the image down a few pixels
+		//var pixels = 
+		//console.log(increment);
+		increment++;
+		if(increment == 20)
+		{
+			//console.log("reached");
+			increment = 0;
+			return;
+		}
+		/*if(increment == 5)
+		{
+			splitMindUp();
+		}*/
+		//document.getElementById("body").style = "initial";
+		//img.style.position = "relative";
+		imgBottom.style.top = parseInt(imgBottom.style.top) + 10 + 'px';
+		imgTop.style.top = parseInt(imgTop.style.top) - 10 + 'px';
+		anim = setTimeout(splitMindDown, 10);
+		//document.getElementById("body").style.top = 100 + 'px';
+
+	}
+	function splitMindUp(){
+		//Essentially we want to move the image up a few pixels and move the image down a few pixels
+		//var pixels = 
+		console.log(increment);
+		increment++;
+		if(increment == 5)
+		{
+			console.log("reached");
+			increment = 0;
+			return;
+		}
+		//document.getElementById("body").style = "initial";
+		//img.style.position = "relative";
+		imgTop.style.top = parseInt(imgTop.style.top) - 10 + 'px';
+		anim = setTimeout(splitMindUp, 20);
+		//document.getElementById("body").style.top = 100 + 'px';
+
+	}
+
+	//For future reference you will create a new div and have it unhidden once sean head comes up for video play!
+
+
+	window.onload = init;
+
+
+</script>
+<style type="text/css">
+
+	.img{
+		display: block;
+    	margin-left: auto;
+   		margin-right: auto;
+   		position: relative;
+   		top: 50px;
+   		opacity: 40%;
+   		-webkit-filter: opacity(40%);
+  		filter: opacity(40%);
+  		
+  		-moz-opacity:40%;
+  		clear: both;
+
+  		z-index: 0;
+  		
+   	}
+   	.logo{
+   		-webkit-filter: opacity(60%);
+   		display: inline;
+   		opacity: 40%;
+   		float: right;
+   		padding-right: 60px;
+   		padding-left: 0px;
+   		
+   	}
+
+   	.playButton{
+   		z-index: 1;
+   		-webkit-filter: opacity(60%);
+   		display: inline;
+   		margin-left: auto;
+
+   		position:absolute;
+
+
+   	}
+
+	
+   	h1{
+   		color: gray;
+   		font-family: 'Lato', sans-serif;
+   		/*font-family: 'Open Sans', sans-serif;*/
+   		font-size: 60px;
+   		clear: both;
+   	}
+	body{
+	
+		background-image: url(https://raw.githubusercontent.com/8BitRain/emofunk/master/space.jpg);
+		background-repeat: no-repeat;
+		background-size: cover;
+
+		/*background: 
+		url(http://www.theblackmosaic.com/wp-content/uploads/2013/04/black-background.jpg) 100% no-repeat;*/
+
+		/*		url(https://raw.githubusercontent.com/8BitRain/emofunk/master/emofunk.jpg) 50% -50%/500px 500px no-repeat,*/
+		/*Make sure user can't scroll*/
+		/* -webkit-filter: blur(.9px);
+  		filter: blur(.9px);*/
+		 overflow-x :hidden;
+ 		 overflow-y: hidden;
+		
+	}
+
+	html{
+		  overflow-x :hidden;
+ 		  overflow-y: hidden;
+	}
+</style>
+	
+<title>Emofunk</title>
+</head>
+
+<body>
+	<a href=""><img class="logo" src="https://raw.githubusercontent.com/8BitRain/emofunk/master/twitter_icon.png"></a>
+	<a href=""><img class="logo" src="https://raw.githubusercontent.com/8BitRain/emofunk/master/facebook_icon.png"></a>
+	<a href=""><img class="logo" src="https://raw.githubusercontent.com/8BitRain/emofunk/master/soundcloud_icon.png"></a> 
+
+	<h1 align="center" font>EMOFUNK</h1>
+
+	 
+
+
+	<img class="img" src="https://raw.githubusercontent.com/8BitRain/emofunk/master/emoFunkHead.png" id="head">
+	<img class="playButton" src="https://raw.githubusercontent.com/8BitRain/emofunk/master/play_button.png"> 
+ 	<img class="img" src="https://raw.githubusercontent.com/8BitRain/emofunk/master/EmoFunkBody.png" id="body"> 
+ 	<button type="button" onClick="splitMindDown()"> TEST DOWN </button>
+	<button type="button" onClick="splitMindUp()"> TEST UP </button>
+
+	
+</body>
+
+</html>
